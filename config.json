@@ -1,0 +1,32 @@
+{
+  "_name_or_path": ".",
+  "architectures": [
+    "LcPlmForMaskedLM"
+  ],
+  "attn_cfg": null,
+  "attn_layer_idx": null,
+  "auto_map": {
+    "AutoConfig": "configuration_lcplm.LcPlmConfig",
+    "AutoModelForMaskedLM": "modeling_lcplm.LcPlmForMaskedLM"
+  },
+  "bidirectional": true,
+  "bidirectional_strategy": "add",
+  "bidirectional_weight_tie": true,
+  "d_intermediate": 0,
+  "d_model": 1536,
+  "fused_add_norm": true,
+  "initializer_cfg": null,
+  "layer": "Mamba1",
+  "model_type": "lc_plm",
+  "n_layer": 48,
+  "norm_epsilon": 1e-05,
+  "pad_token_id": -100,
+  "pad_vocab_size_multiple": 128,
+  "residual_in_fp32": true,
+  "rms_norm": true,
+  "ssm_cfg": {},
+  "tie_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.41.0",
+  "vocab_size": 128
+}
