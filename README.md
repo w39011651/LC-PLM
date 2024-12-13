@@ -1,5 +1,8 @@
 ---
-license: apache-2.0
+license: cc-by-nc-4.0
+tags:
+- biology
+- protein
 ---
 # LC-PLM
 
