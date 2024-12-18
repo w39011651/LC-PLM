@@ -11,6 +11,15 @@ LC-PLM is a frontier long-context protein language model based on an alternative
 You can use LC-PLM to extract embeddings for amino acid residues and protein sequences. It can also be fine-tuned to predict residue- or protein- level properties. 
 
 ## Getting started
+
+### Install Python dependencies
+
+```bash
+pip install transformers mamba-ssm==2.2.2
+```
+
+### Download and run inference with the pretrained model
+
 ```python
 import torch
 from transformers import AutoTokenizer, AutoModelForMaskedLM
