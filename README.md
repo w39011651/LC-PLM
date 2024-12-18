@@ -25,7 +25,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 # Load the model and tokenizer
-model = AutoModelForMaskedLM.from_pretrained("wangz10/LC-PLM", trust_remote_code=True)
+model = AutoModelForMaskedLM.from_pretrained("amazon/LC-PLM", trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained("facebook/esm2_t6_8M_UR50D")
 
 # Input a protein sequence:
@@ -59,3 +59,6 @@ print(last_hidden_state.shape) # [batch_size, sequence_length, hidden_dim]
       url={https://arxiv.org/abs/2411.08909}, 
 }
 ```
+
+## License
+This project is licensed under the [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en) License.
