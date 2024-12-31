@@ -1,4 +1,6 @@
 # Copyright (c) 2024, Tri Dao.
+# Modifications (c) 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
 # Implement dropout + residual + layer_norm / rms_norm.
 
 # Based on the Triton LayerNorm tutorial: https://triton-lang.org/main/getting-started/tutorials/05-layer-norm.html
