@@ -17,15 +17,21 @@ You can use LC-PLM to extract embeddings for amino acid residues and protein seq
 ```bash
 pip install transformers mamba-ssm==2.2.2
 ```
+### Clone this repo with pretrained model weights
 
-### Download and run inference with the pretrained model
+We use [Git Large File Storage (LFS)](https://git-lfs.com/) to version the model weights. You can obtain the pretrained model and its related files simply by cloning this repo: 
+```bash
+git clone https://github.com/amazon-science/LC-PLM.git
+```
+
+### Run inference with the pretrained model
 
 ```python
 import torch
 from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 # Load the model and tokenizer
-model = AutoModelForMaskedLM.from_pretrained("amazon/LC-PLM", trust_remote_code=True)
+model = AutoModelForMaskedLM.from_pretrained("./LC-PLM", trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained("facebook/esm2_t6_8M_UR50D")
 
 # Input a protein sequence:
