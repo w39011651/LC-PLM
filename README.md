@@ -59,6 +59,9 @@ print(last_hidden_state.shape) # [batch_size, sequence_length, hidden_dim]
       url={https://arxiv.org/abs/2411.08909}, 
 }
 ```
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 This project is licensed under the [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en) License.
