@@ -52,7 +52,7 @@ outputs/results/
 *.pt
 
 # .ipynb files
-*.ipynb
+#*.ipynb
 
 # .pyc files
 *.pyc
