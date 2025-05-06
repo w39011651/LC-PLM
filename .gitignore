@@ -1,0 +1,60 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and runtime files
+*.log
+*.tmp
+*.out
+
+# VSCode settings
+.vscode/
+
+# Environment
+.env
+.venv/
+env/
+venv/
+pip-wheel-metadata/
+
+# OS / Editor stuff
+.DS_Store
+Thumbs.db
+
+# Model checkpoints
+*.pt
+*.ckpt
+*.bin
+*.onnx
+*.h5
+*.pb
+*.joblib
+
+# Hugging Face Transformers checkpoints
+checkpoint-*/
+
+# Custom model results
+notebooks/results/
+src/models/results/
+
+# Dataset cache (if any)
+data/processed/*
+data/features/*
+
+# Other large files (optional)
+outputs/models/
+outputs/results/
+*.pkl
+*.pt
+
+# .ipynb files
+#*.ipynb
+
+# .pyc files
+*.pyc
+experiment/runs/
+# files under notebooks

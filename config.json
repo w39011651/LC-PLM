@@ -18,7 +18,7 @@
   "initializer_cfg": null,
   "layer": "Mamba1",
   "model_type": "lc_plm",
-  "n_layer": 48,
+  "n_layer": 8,
   "norm_epsilon": 1e-05,
   "pad_token_id": -100,
   "pad_vocab_size_multiple": 128,

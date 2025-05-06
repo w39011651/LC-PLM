@@ -4,6 +4,20 @@ tags:
 - biology
 - protein
 ---
+# Experiments
+Fine tune LC-PLM to predict FAD binding site
+
+now result:
+```
+              precision    recall  f1-score   support
+
+           0       0.98      0.98      0.98      3472
+           1       0.53      0.54      0.54       143
+
+    accuracy                           0.96      3615
+   macro avg       0.76      0.76      0.76      3615
+weighted avg       0.96      0.96      0.96      3615
+```
 # LC-PLM
 
 LC-PLM is a frontier long-context protein language model based on an alternative protein LM architecture, BiMamba-S, built off selective structured state-space models. It is pretrained on UniRef50/90 with masked language modeling (MLM) objective. For detailed information on the model architecture, training data, and evaluation performance, please refer to the [accompanying paper](https://arxiv.org/abs/2411.08909).
