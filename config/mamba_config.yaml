@@ -4,10 +4,10 @@ training_arguments:
   save_safetensors: true  # 確保這一行存在並且值為 true
   dataloader_num_workers: 4
   output_dir: "./results"
-  per_device_train_batch_size: 8
-  per_device_eval_batch_size: 16
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 8
   gradient_accumulation_steps: 1
-  num_train_epochs: 30
+  num_train_epochs: 3
   eval_strategy: "steps"
   save_strategy: "steps"
   logging_dir: "./logs"

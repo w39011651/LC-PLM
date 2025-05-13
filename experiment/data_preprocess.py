@@ -14,10 +14,10 @@ def sliding_window(protein_info, window_size = 13):
     length = len(protein_info['sequence'])
     
     while right + 1 != length:#because slice is interval[left:right), so we can slice to idx, where idx is the length of sequence
-        subseq_info = {"sequence":None, "label":None, "target_amino_acid":None}
+        subseq_info = {"sequence":None, "label":None}
         subseq_info['sequence'] = protein_info['sequence'][left:right]
         subseq_info['label'] = protein_info['label'][left:right]
-        subseq_info['target_amino_acid'] = protein_info['sequence'][(left+right)//2]
+        #subseq_info['target_amino_acid'] = protein_info['sequence'][(left+right)//2]
         ret.append(subseq_info)
         left += 1
         right += 1
@@ -111,18 +111,25 @@ from torch.utils.data import random_split
 
 from tqdm import tqdm
 
+import numpy as np
 
 
-def run():
+
+def run(file_path ="./FAD_rmsim.json",  slidingwindow=False):
     """RETURN [TRAIN_DATASET, TEST_DATASET]"""
-
-    data = read_from_json("./FAD_rmsim.json")
+    data = read_from_json(file_path)
     protein_information = get_protein_information(json_data=data)
-    print(protein_information)
+    
+    if slidingwindow:
+        ret = []
+        for protein in protein_information:
+            ret += sliding_window(protein)
+        return ret
+    
     return protein_information
 
 import os
 if __name__ == '__main__':
     files = os.listdir('./')
     print(files)
-    run()
+    print(run('experiment/FAD_rmsim.json', True))

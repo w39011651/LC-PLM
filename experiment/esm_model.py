@@ -1,7 +1,7 @@
 import torch
 from torch import nn
-from transformers import AutoTokenizer, AutoModelForMaskedLM
-import torchvision
+from transformers import AutoModelForMaskedLM, EsmConfig
+import numpy as np
 
 class focal_loss(nn.Module):
     def __init__(self, alpha = None, gamma = 2.0):
@@ -18,17 +18,16 @@ class focal_loss(nn.Module):
             focal_loss = self.alpha*((1-pt) ** self.gamma) * cross_entropy_loss #-(1-softmax^gamma*log(softmax))
         return focal_loss
 
-class LCPLMforSequenceLabeling(nn.Module):
-    def __init__(self, model_path, num_labels=2):
-        super(LCPLMforSequenceLabeling, self).__init__()
-        self.lc_plm = AutoModelForMaskedLM.from_pretrained(model_path, trust_remote_code=True)
-        self.classifier = nn.Linear(self.lc_plm.config.d_model, num_labels)
-        #this classifier to determine this amino acid is fad binding site or not
-        #self.loss_fn = nn.CrossEntropyLoss().to("cuda")
+class EsmForSequenceLabeling(nn.Module):
+    def __init__(self, model_name, num_labels=2):
+        super(EsmForSequenceLabeling, self).__init__()
+        self.esm = AutoModelForMaskedLM.from_pretrained(model_name, trust_remote_code=True)
+
+        self.classifier = nn.Linear(self.esm.config.hidden_size, num_labels)
         self.loss_fn = focal_loss(alpha=None, gamma=2.0).to("cuda")  
     
     def forward(self, input_ids, attention_mask=None, labels=None):
-        outputs = self.lc_plm(input_ids = input_ids, attention_mask = attention_mask, labels = labels, output_hidden_states = True)
+        outputs = self.esm(input_ids = input_ids, attention_mask = attention_mask, labels = labels, output_hidden_states = True)
         sequence_output = outputs.hidden_states[-1]
 
         logits = self.classifier(sequence_output)
@@ -47,4 +46,3 @@ class LCPLMforSequenceLabeling(nn.Module):
             loss = self.loss_fn(active_logits, active_labels) 
 
         return loss, logits
-    
