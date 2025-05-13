@@ -9,14 +9,17 @@ Fine tune LC-PLM to predict FAD binding site
 
 now result:
 ```
+Best Threshold: 0.276, G-Mean: 0.987
+Shape of flattened labels: (451456,)
+Shape of flattened predictions: (451456,)
               precision    recall  f1-score   support
 
-           0       0.98      0.98      0.98      3472
-           1       0.53      0.54      0.54       143
+           0       1.00      0.98      0.99     44443
+           1       0.67      0.99      0.80      1408
 
-    accuracy                           0.96      3615
-   macro avg       0.76      0.76      0.76      3615
-weighted avg       0.96      0.96      0.96      3615
+    accuracy                           0.98     45851
+   macro avg       0.84      0.99      0.90     45851
+weighted avg       0.99      0.98      0.99     45851
 ```
 # LC-PLM
 
