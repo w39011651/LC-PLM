@@ -27,7 +27,7 @@ def sliding_window(protein_info, window_size = 13):
 def get_binding_site(features):
     binding_site = []
     for feature in features:
-        if feature['type'] == 'Binding site' and (feature['ligand']['name']=='FAD' or feature['ligand']['name']=='FMN'):#only need FAD
+        if feature['type'] == 'Binding site' and feature['ligand']['name']=='ATP':#only need FAD
             binding_site.append([feature['location']['start']['value'], feature['location']['end']['value']])
     return binding_site
 
@@ -47,6 +47,10 @@ def get_protein_information(json_data):
         info = {"sequence":None, "label":None}
         info['sequence'] = protein['sequence']['value']
         info['label'] = generate_label(protein, get_binding_site(protein['features']))
+
+        if info['label'].count(0) == len(info['label']):
+            continue
+
         protein_information.append(info)
 
     return protein_information
@@ -132,4 +136,5 @@ import os
 if __name__ == '__main__':
     files = os.listdir('./')
     print(files)
-    print(run('experiment/FAD_rmsim.json', True))
+    data = run('experiment/ATP_rmsim.json', False)
+    print(len(data))
