@@ -1,2 +1,4 @@
 *.pyc
 experiment/
+proteinnet/
+*.tar.gz
